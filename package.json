@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/sankshitpandoh/avatar-gen.git"
   },
+  "type": "module",
   "keywords": [
     "javascript",
     "avatar",
@@ -22,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/sankshitpandoh/avatar-gen/issues"
   },
-  "homepage": "https://github.com/sankshitpandoh/avatar-gen#readme"
+  "homepage": "https://github.com/sankshitpandoh/avatar-gen#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/node": "^7.14.9",
+    "@babel/preset-env": "^7.15.0"
+  }
 }
