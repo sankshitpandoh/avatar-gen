@@ -190,24 +190,29 @@ const randomMaterialColor = () => {
 }
 
 const avatarGen = ({ name, backgroundColor, fontColor, size, }) => {
-    let canvas = document.createElement('canvas');
-    canvas.style.display = 'none';
-    canvas.width = size || '200';
-    canvas.height = size || '200';
-    document.body.appendChild(canvas);
-    let context = canvas.getContext('2d');
-    context.fillStyle = backgroundColor || randomMaterialColor();
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    context.font = `${(size || 200) / 2}px Arial`;
-    context.fillStyle = fontColor || "#FFFFFF";
-    let [first, last] = name.split(" ");
-    let text = (((first || "")[0]) || "S") + (((last || "")[0]) || "");
-    text = text.toUpperCase();
-    let textWidth = context.measureText(text).width;
-    context.fillText(text, (canvas.width / 2) - (textWidth / 2), (size || 200) / 2 + ((size || 200) / 8) + 8);
-    let data = canvas.toDataURL();
-    document.body.removeChild(canvas);
-    return data;
+    try {
+        let canvas = document.createElement('canvas');
+        canvas.style.display = 'none';
+        canvas.width = size || '200';
+        canvas.height = size || '200';
+        document.body.appendChild(canvas);
+        let context = canvas.getContext('2d');
+        context.fillStyle = backgroundColor || randomMaterialColor();
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.font = `${(size || 200) / 2}px Arial`;
+        context.fillStyle = fontColor || "#FFFFFF";
+        let [first, last] = name.split(" ");
+        let text = (((first || "")[0]) || "S") + (((last || "")[0]) || "");
+        text = text.toUpperCase();
+        let textWidth = context.measureText(text).width;
+        context.fillText(text, (canvas.width / 2) - (textWidth / 2), (size || 200) / 2 + ((size || 200) / 8) + 8);
+        let data = canvas.toDataURL();
+        document.body.removeChild(canvas);
+        return data;
+    } catch (err) {
+        console.log(err, "AVATAR GEN");
+    }
 }
+
 
 export default avatarGen;
