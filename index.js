@@ -189,12 +189,15 @@ const randomMaterialColor = () => {
     return newColor;
 }
 
-const avatarGen = ({ name, backgroundColor, fontColor, size, }) => {
+const avatarGen = ({ name, backgroundColor, fontColor, size, rounded=false }) => {
     try {
         let canvas = document.createElement('canvas');
         canvas.style.display = 'none';
         canvas.width = size || '200';
         canvas.height = size || '200';
+        if (rounded) {
+            canvas.style.border_radius = "50%"
+        }
         document.body.appendChild(canvas);
         let context = canvas.getContext('2d');
         context.fillStyle = backgroundColor || randomMaterialColor();
