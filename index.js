@@ -202,7 +202,7 @@ const avatarGen = ({ name, backgroundColor, fontColor, size, rounded=false }) =>
         let context = canvas.getContext('2d');
         context.fillStyle = backgroundColor || randomMaterialColor();
         context.fillRect(0, 0, canvas.width, canvas.height);
-        context.font = `${(size || 200) / 2}px Arial`;
+        context.font = `${(size - size / 3 || 200)}px Arial`;
         context.fillStyle = fontColor || "#FFFFFF";
         let [first, last] = name.split(" ");
         let text = (((first || "")[0]) || "S") + (((last || "")[0]) || "");
