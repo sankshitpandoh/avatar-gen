@@ -208,7 +208,7 @@ const avatarGen = ({ name, backgroundColor, fontColor, size, rounded=false }) =>
         let text = (((first || "")[0]) || "S") + (((last || "")[0]) || "");
         text = text.toUpperCase();
         let textWidth = context.measureText(text).width;
-        context.fillText(text, (canvas.width / 2) - (textWidth / 2), (size || 200) / 2 + ((size || 200) / 8) + 8);
+        context.fillText(text, (canvas.width / 2) - (textWidth / 2), (size || 200) / 2 + ((size || 200) / 2) - (textWidth / 2));
         let data = canvas.toDataURL();
         document.body.removeChild(canvas);
         return data;
